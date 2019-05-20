@@ -1,27 +1,55 @@
-const enhancer = require("./enhancer.js");
-// test away!
+const { repair, succeed, fail, get } = require("./enhancer.js");
+
 describe("enhancer.js", () => {
-  discribe("succeed() method", () => {
-    it(" accepts an item object and returns a new item object modified according to the rules defined by the client for enhancement success", () => {
-      expect().toBe();
+  describe("succeed() method", () => {
+    it("", () => {
+      const item = {
+        name: "something",
+        enhancement: 15,
+        durability: 100
+      };
+      const expected = {
+        name: "something",
+        enhancement: 16,
+        durability: 100
+      };
+      const enhancedItem = succeed(item);
+      expect(enhancedItem).toEqual(expected);
     });
   });
 });
 
-describe("enhancer.js", () => {
-  discribe("repair() method", () => {
-    it("accepts an item object and returns a new item with the durability restored to 100", () => {
-      const item = num;
-      const newItem = 100;
-      expect(item).toBe(newItem);
-    });
+describe("repair() method", () => {
+  it("accepts an item object and returns a new item with the durability restored to 100", () => {
+    const item = num;
+    const newItem = 100;
+    expect(durability).toBe(newItem);
   });
 });
 
-describe("enhancer.js", () => {
-  discribe("fail() method", () => {
-    it("accepts an item object and returns a new item object modified according to the rules defined by the client for enhancement failure.", () => {
-      expect().toBe();
+describe("fail() method", () => {
+  it("decrease", () => {
+    let item = {
+      name: "something",
+      durability: 50,
+      enhancement: 14
+    };
+    expect(fail(item)).toEqual({
+      name: "something",
+      durability: 45,
+      enhancement: 14
+    });
+  });
+  it("decrease enhencement by 1, if enhencement is greater then 16", () => {
+    let item = {
+      name: "something",
+      durability: 50,
+      enhancement: 17
+    };
+    expect(fail(item)).toEqual({
+      name: "something",
+      durability: 50,
+      enhancement: 16
     });
   });
 });
